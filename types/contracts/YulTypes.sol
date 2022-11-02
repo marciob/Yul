@@ -2,6 +2,7 @@
 pragma solidity ^0.8.9;
 
 //technically Yul isn't an assembly language, it's one level of abstraction above assembly
+//real assembly doesn't have the concept of variables, functions, for-loops, if statements, which Yul has
 
 contract YulTypes {
     function getNumber() external pure returns (uint256) {
