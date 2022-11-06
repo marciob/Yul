@@ -103,11 +103,11 @@ contract ExternalCalls {
             //                                                         |       |
             //                                                         28      32
             let success := staticcall(gas(), _a, 28, 32, 0x00, 0x20)
-            //  staticcall(gas(), a,b, x,y, w,z)
-            //  gas() -> is the amount of gas
-            //  _a is
-            //  x,y is
-            //  w,z is
+            //  staticcall(_gas, a,b, x,y, w,z)
+            //  _gas -> how much gas you want to pass, gas() automatically pass all available gas
+            //  _a is -> address of the contract to call
+            //  x,y is -> the transaction data, in this case it was loaded into memory
+            //  w,z is -> it's the region of the memory that the results will be copied, when a function returns it will overwrite this location and replace with the return value
             if iszero(success) {
                 revert(0, 0)
             }
